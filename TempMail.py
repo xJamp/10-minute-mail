@@ -46,7 +46,7 @@ class TempMail():
 	def WaitResponse(self, stop = 1, cooldown = 0):
 		Len_Message=0
 
-		while top>Len_Message:
+		while stop>Len_Message:
 			self.message=self.Response_Order()
 			Len_Message=len(self.message)
 			time.sleep(cooldown)

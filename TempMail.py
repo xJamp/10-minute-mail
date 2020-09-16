@@ -14,7 +14,7 @@ class TempMail():
 
 	def get(self):
 		response = requests.get('https://10minutemail.net/', proxies=self.proxies)
-		return(BeautifulSoup(response.text, 'html.parser').find(id='fe_text')['value'], response.cookies['PHPSESSID'])
+		return(BeautifulSoup(response.text, 'html.parser').find(id='fe_text')['value'], 'PHPSESSID='+response.cookies['PHPSESSID'])
 
 	def Time_Order(self):
 		Total_Segundos=self.Time_Seconds()

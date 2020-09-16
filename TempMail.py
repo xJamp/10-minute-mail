@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import time
 
 class TempMail():
 	def __init__(self, proxies = None):
@@ -55,4 +54,5 @@ class TempMail():
 
 	def Reset_Time(self):
 		response = requests.get('https://10minutemail.net/more.html', proxies=self.proxies, headers=self.headers)
+		self.Start_Time=time.time()
 		return('Los minutos se resetearon a 10!')

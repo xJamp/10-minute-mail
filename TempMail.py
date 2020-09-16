@@ -3,13 +3,13 @@ from bs4 import BeautifulSoup
 import time
 
 class TempMail():
-	def __init__(self, proxies=None):
-		self.proxies=proxies
+	def __init__(self, proxies = None):
+		self.proxies = proxies
 		Data=self.get()
 
-		self.get=Data[0]
+		self.get = Data[0]
 		self.headers={'cookie':Data[1]}
-		self.Start_Time=time.time()
+		self.Start_Time = time.time()
 
 
 	def get(self):
@@ -28,7 +28,7 @@ class TempMail():
 		return(response.text)
 
 	def Response_Order(self):
-		Data_brute=self.Response_Brute()
+		Data_brute = self.Response_Brute()
 
 		soup = BeautifulSoup(Data_brute, 'html.parser')
 		Info=[]
@@ -43,7 +43,7 @@ class TempMail():
 		return(Info)
 
 
-	def WaitResponse(self, top, cooldown=0):
+	def WaitResponse(self, stop = 1, cooldown = 0):
 		Len_Message=0
 
 		while top>Len_Message:
@@ -56,10 +56,3 @@ class TempMail():
 	def Reset_Time(self):
 		response = requests.get('https://10minutemail.net/more.html', proxies=self.proxies, headers=self.headers)
 		return('Los minutos se resetearon a 10!')
-
-
-
-Mail=TempMail()
-
-print(Mail.get)
-print(Mail.Reset_Time())

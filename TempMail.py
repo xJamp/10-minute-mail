@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import time
 
 class TempMail():
 	def __init__(self, proxies = None):
